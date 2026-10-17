@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A clean, interactive dataset exploration tool for CSV files.">
+  <title>Fieldnotes — Dataset Explorer</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">f.</div><div><strong>FIELDNOTES</strong><small>DATA LAB</small></div></div>
+      <div class="side-label">WORKSPACE</div><div class="nav-item active"><span>▦</span> Dataset explorer</div><div class="nav-item"><span>⌘</span> Quick guide</div>
+      <div class="sidebar-bottom"><div class="status-dot"></div><div><strong>Local-first workspace</strong><small>Your file stays in this browser</small></div></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><span class="crumb">WORKSPACE</span><span class="slash">/</span><span>Dataset explorer</span></div><span class="top-pill">PYTHON · PANDAS COMPANION</span></header>
+      <section class="hero"><div><p class="eyebrow">DATA INVESTIGATION / 01</p><h1>Meet your <em>dataset.</em></h1><p class="hero-copy">A first look before the first model. Upload a CSV to inspect its structure, spot column types, and get a feel for the numbers.</p></div><div class="hero-art" aria-hidden="true"><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-card"><span>ROWS</span><b>01</b><span class="art-line"></span><span>COLUMNS</span><b>02</b></div><div class="art-spark">✳</div></div></section>
+      <section class="upload-panel"><div class="upload-icon">↑</div><div class="upload-text"><h2>Bring in a CSV file</h2><p>Choose your own dataset or start with the sample data. Nothing is uploaded to a server.</p></div><div class="upload-actions"><label class="button primary" for="fileInput">Choose CSV</label><button class="button secondary" id="sampleBtn">Try sample data</button><input id="fileInput" type="file" accept=".csv,text/csv" hidden></div></section>
+      <div class="notice" id="notice" role="status">Ready when you are — choose a CSV file to begin.</div>
+      <section class="metrics" aria-label="Dataset dimensions"><article class="metric"><div class="metric-label">OBSERVATIONS <span>↘</span></div><div class="metric-value" id="rowCount">—</div><div class="metric-foot">Total rows in dataset</div></article><article class="metric"><div class="metric-label">FEATURES <span>▤</span></div><div class="metric-value" id="colCount">—</div><div class="metric-foot">Total columns / variables</div></article><article class="metric"><div class="metric-label">NUMERIC FIELDS <span>∑</span></div><div class="metric-value" id="numericCount">—</div><div class="metric-foot">Columns detected as numbers</div></article><article class="metric"><div class="metric-label">MISSING CELLS <span>◌</span></div><div class="metric-value" id="missingCount">—</div><div class="metric-foot">Empty values across the data</div></article></section>
+      <section class="content-grid"><article class="panel schema-panel"><div class="panel-heading"><div><p class="eyebrow">01 / STRUCTURE</p><h2>Column schema</h2></div><span class="mini-tag" id="schemaTag">NO DATA</span></div><div class="table-wrap"><table><thead><tr><th>Column</th><th>Detected type</th><th>Filled</th><th>Missing</th></tr></thead><tbody id="schemaBody"><tr><td colspan="4" class="empty">Your column details will appear here.</td></tr></tbody></table></div></article>
+      <article class="panel stats-panel"><div class="panel-heading"><div><p class="eyebrow">02 / SUMMARY</p><h2>Numeric snapshot</h2></div><span class="mini-tag">DESCRIBE</span></div><div class="table-wrap"><table><thead><tr><th>Statistic</th><th id="statColumnHeading">—</th></tr></thead><tbody id="statsBody"><tr><td colspan="2" class="empty">Numeric statistics will appear here.</td></tr></tbody></table></div><p class="panel-note">Summary statistics are calculated for the first numeric column.</p></article></section>
+      <section class="panel preview-panel"><div class="panel-heading preview-heading"><div><p class="eyebrow">03 / FIRST IMPRESSION</p><h2>Data preview</h2><p class="subcopy">Inspect the first and last five records, just like <code>head()</code> and <code>tail()</code>.</p></div><div class="tabs"><button class="tab active" data-view="head">head(5)</button><button class="tab" data-view="tail">tail(5)</button></div></div><div class="table-wrap"><table id="previewTable"><thead></thead><tbody><tr><td class="empty">Load a dataset to preview records.</td></tr></tbody></table></div><div class="preview-footer"><span id="previewLabel">Waiting for data</span><span>CSV · PREVIEW</span></div></section>
+      <section class="learn-strip"><div class="learn-icon">{ }</div><div><p class="eyebrow">TERMINAL WORKFLOW</p><h2>Want the same exploration with Pandas?</h2><p>Run the included Python script from your terminal to print dimensions, column information, descriptive statistics, and sample rows.</p></div><code>python explore_dataset.py your_file.csv</code></section>
+      <footer>FIELDNOTES DATA LAB <span>BUILT FOR THE FIRST LOOK · 2026</span></footer>
+    </main>
+  </div><script src="app.js"></script>
+</body></html>
